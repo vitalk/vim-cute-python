@@ -3,18 +3,8 @@ if !has('conceal')
     finish
 endif
 
-" remove the keywords. we'll re-add them below
-syntax clear pythonOperator
-
 syntax match pythonOperator "\<is\>"
 
-syntax match pyNiceOperator "\<in\>" conceal cchar=∈
-syntax match pyNiceOperator "\<or\>" conceal cchar=∨
-syntax match pyNiceOperator "\<and\>" conceal cchar=∧
-" include the space after “not” – if present – so that “not a” becomes “¬a”.
-" also, don't hide “not” behind  ‘¬’ if it is after “is ”.
-syntax match pyNiceOperator "\%(is \)\@<!\<not\%( \|\>\)" conceal cchar=¬
-syntax match pyNiceOperator "\<not in\>" conceal cchar=∉
 syntax match pyNiceOperator "<=" conceal cchar=≤
 syntax match pyNiceOperator ">=" conceal cchar=≥
 " only conceal “==” if alone, to avoid concealing SCM conflict markers
